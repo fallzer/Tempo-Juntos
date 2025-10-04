@@ -1,0 +1,271 @@
+/* Importação das fontes */
+/* Você pode ajustar as fontes para as que gostar, estas são sugestões */
+/* font-family: 'Playfair Display', serif; para títulos */
+/* font-family: 'Cormorant Garamond', serif; para o corpo do texto e data */
+:root {
+  --cor-primaria: #020001; /* vinho escuro */
+  --cor-secundaria: #340016; /* vinho */
+  --cor-sangue: #9F102C; /* sangue */
+}
+
+body {
+    
+    background-color: var(--cor-primaria); /* Fundo bem escuro */
+    color: #f0f0f0; /* Cor do texto claro */
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* --- Títulos e Header --- */
+.main-header {
+    
+    padding: 40px 20px 20px;
+}
+
+.header-icon img {
+    width: 30px; /* Tamanho do ícone de ampulheta */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%); /* Deixa o ícone branco ou com a cor desejada */
+    margin-bottom: 10px;
+}
+
+h1 { /*NOME PRINCIPAL*/
+    font-family: "Corinthia", cursive;
+    font-size: 4em; /* Tamanho do nome do casal */
+    margin-bottom: 5px;
+}
+
+.date {
+	
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+h2 { /*TEMPO JUNTOS*/
+    font-family: "Corinthia", cursive;
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+
+/* ==============================================SWIPER============================================================*/
+
+
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+
+.swiper {
+    
+	width: 350px;
+	padding: 50px 0;
+}
+
+.swiper-slide {
+	position: relative;
+	width: 320px;
+	aspect-ratio: 3/4;
+	border-radius: 20px;
+	border: 1px solid rgba(73, 73, 73, 0.5);
+
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+	user-select: none;
+}
+
+.title {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translate(-50%, 1%);
+	-ms-transform: translate(-30%, -20%);
+	width: max-content;
+	text-align: center;
+	
+	padding: 0px 18px;
+	border-radius: 20px;
+	
+	width: calc(100% + 2px);
+	height: calc(100px + 2px);
+	
+	background: linear-gradient(180deg, #fff0 0, rgba(0, 0, 0, 0.644) 80px), linear-gradient(180deg, #fff0 , #0009);
+
+}
+
+.title span {
+	width: 100%;
+	
+	display: grid;
+	top: 35%;
+	text-align: center;
+	position: relative;
+	text-transform: uppercase;
+	user-select: none;
+
+}
+
+/* ===========================================================================================================*/
+
+/* --- descrição --- */
+.message-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1.0em;
+    font-style: italic;
+}
+
+.quote {
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* --- Seção do Contador (O mais importante) --- */
+.counter-section {
+    background: linear-gradient(to bottom, var(--cor-primaria)50%, var(--cor-secundaria)); /* Fundo bem escuro */
+    padding: 40px 20px 60px;
+    margin-top: 50px;
+}
+
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas por linha */
+    gap: 10px; /* ESPAÇP ENTRE OS QUADRADOS */ 
+    max-width: 350px; /* LARGURA */ 
+    margin: 0 auto 30px;
+}
+
+.time-box {
+    background-color: var(--cor-secundaria); /* Fundo preto/escuro das caixas */
+    border: 3px solid var(--cor-sangue); /* Borda cor de vinho/vermelho, como na imagem */
+    border-radius: 30px;
+    padding: 45px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+	user-select: none;
+}
+
+.time-value { /* TAMANHO D0S 'NÚMEROS' */
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.time-label { /* TAMANHO DA 'MINUTOS E HORAS' */
+    font-size: 0.8em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.total-time { /* TAMANHO DA 'UM TOTAL DE' */
+    font-size: 1.0em; 
+    margin-top: 20px;
+}
+
+.music-section {
+    background-color: var(--cor-primaria);
+    padding: 40px 20px 60px;
+}
+
+/* =================================================dias===================================================== */
+
+
+.counter-happy{
+    background: linear-gradient(to top, var(--cor-primaria)50%, var(--cor-secundaria)); /* Fundo bem escuro */
+    height: 300px;
+    padding: 40px 20px 60px;
+    margin-top: 50px;
+}
+
+.counter-happy h2 { /* sendo feliz  */
+    margin-bottom: -40px;
+}
+
+.counter-happy span {
+    font-size: 2.7em; /* X dias  */
+    margin-bottom: 10px;
+}
+
+.counter-happy p {
+    font-size: 1.0em; /* ao seu lado*/
+    
+}
+
+
+/* ================================================footer==================================================== */
+
+.main-footer {
+    background-color: var(--cor-primaria); /* fundo escuro */
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 5px solid var(--cor-sangue); /* a linha vermelha */
+}
+
+.main-footer .footer-icon img { /* ampulheta  */
+    width: 30px;
+    margin-bottom: 15px;
+}
+
+.main-footer .footer-text { /* frase  */
+    font-size: 1em;
+    opacity: 0.9;
+    margin-bottom: 80px;
+}
+
+.main-footer .footer-info { /* direitos  */
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+
+
+/* =================================================MOBILE==================================================== */
+@media (max-width: 600px) {
+    h1, h2 {
+        font-size: 3.5em;
+    }
+	.swiper {
+	width: 75%;
+	padding: 50px 0;
+	}
+
+	.music {
+		width: 95%;
+		
+	}
+    .timer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas pequenas */
+        max-width: 250px;
+    }
+    .time-box {
+        height: 70px;
+    }
+    .time-value {
+        font-size: 2.5em;
+    }
+}
+
+
