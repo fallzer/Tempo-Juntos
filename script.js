@@ -1,5 +1,5 @@
 // --- CONFIGURAÇÃO CHAVE: MUDAR PARA A SUA DATA DE INÍCIO DO NAMORO ---
-const startDate = new Date('2025-07-06T12:30:00'); // ANO-MÊS-DIA
+const startDate = new Date('2025-07-06T12:30:00-04:00'); // ANO-MÊS-DIA
 // Exemplo: 20 de Janeiro de 2022. Use o formato ANO-MÊS-DIA.
 // --- FIM DA CONFIGURAÇÃO ---
 
@@ -53,6 +53,12 @@ function updateCounter() {
     refDate.setFullYear(startDate.getFullYear() + years);
     refDate.setMonth(startDate.getMonth() + months);
 
+    // Garante que a data de referência nunca ultrapasse o "agora"
+    if (refDate > now) {
+        refDate.setMonth(refDate.getMonth() - 1);
+    }
+
+    // Agora sim calcula a diferença
     const timeSinceRef = now.getTime() - refDate.getTime();
     
     let secondsTotal = Math.floor(timeSinceRef / 1000);
