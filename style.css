@@ -1,0 +1,277 @@
+/* =========================================================
+FONTES E VARIÁVEIS GLOBAIS
+   ========================================================= */
+:root {
+    --cor-primaria: #020001;
+    /* vinho escuro */
+    --cor-secundaria: #340016;
+    /* vinho */
+    --cor-sangue: #9F102C;
+    /* sangue */
+}
+
+/* =========================================================
+RESET E CONFIGURAÇÕES BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    color: #f0f0f0;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+CABEÇALHO
+   ========================================================= */
+.main-header {
+    padding: 40px 20px 20px;
+}
+
+.header-icon img {
+    width: 30px;
+    margin-bottom: 10px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+}
+
+h1 {
+    font-family: "Corinthia", cursive;
+    font-size: 4em;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* =========================================================
+TÍTULOS
+   ========================================================= */
+h2 {
+    font-family: "Corinthia", cursive;
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+SWIPER (GALERIA)
+   ========================================================= */
+.swiper {
+    width: 350px;
+    padding: 50px 0;
+}
+
+.swiper-slide {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    border: 1px solid rgba(73, 73, 73, 0.5);
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    user-select: none;
+}
+
+.title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 1%);
+    width: calc(100% + 2px);
+    height: calc(100px + 2px);
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff0 0, rgba(0, 0, 0, 0.644) 80px),
+        linear-gradient(180deg, #fff0, #0009);
+}
+
+.title span {
+    display: grid;
+    position: relative;
+    top: 35%;
+    text-transform: uppercase;
+    text-align: center;
+    user-select: none;
+}
+
+/* =========================================================
+MENSAGEM
+   ========================================================= */
+.message-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.quote {
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* =========================================================
+CONTADOR PRINCIPAL
+   ========================================================= */
+.counter-section {
+    background: linear-gradient(to bottom,
+            var(--cor-primaria) 50%,
+            var(--cor-secundaria));
+    padding: 40px 20px 60px;
+    margin-top: 50px;
+}
+
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 350px;
+    margin: 0 auto 30px;
+}
+
+.time-box {
+    background-color: var(--cor-secundaria);
+    border: 3px solid var(--cor-sangue);
+    border-radius: 30px;
+    padding: 45px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    user-select: none;
+}
+
+.time-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.time-label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.total-time {
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+/* =========================================================
+MÚSICA
+   ========================================================= */
+.music-section {
+    background-color: var(--cor-primaria);
+    padding: 40px 20px 60px;
+}
+
+/* =========================================================
+DIAS FELIZES
+   ========================================================= */
+.counter-happy {
+    background: linear-gradient(to top,
+            var(--cor-primaria) 50%,
+            var(--cor-secundaria));
+    height: 300px;
+    padding: 40px 20px 60px;
+    margin-top: 50px;
+}
+
+.counter-happy h2 {
+    margin-bottom: -40px;
+}
+
+.counter-happy span {
+    font-size: 2.7em;
+    margin-bottom: 10px;
+}
+
+.counter-happy p {
+    font-size: 1em;
+}
+
+/* =========================================================
+RODAPÉ
+   ========================================================= */
+.main-footer {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 5px solid var(--cor-sangue);
+}
+
+.main-footer .footer-icon img {
+    width: 30px;
+    margin-bottom: 15px;
+}
+
+.main-footer .footer-text {
+    font-size: 1em;
+    opacity: 0.9;
+    margin-bottom: 80px;
+}
+
+.main-footer .footer-info {
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+/* =========================================================
+RESPONSIVIDADE
+   ========================================================= */
+@media (max-width: 600px) {
+
+    h1,
+    h2 {
+        font-size: 3.5em;
+    }
+
+    .swiper {
+        width: 75%;
+        padding: 50px 0;
+        font-size: 0.8em;
+    }
+
+    .music {
+        width: 95%;
+    }
+
+    .timer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 250px;
+    }
+
+    .time-box {
+        height: 70px;
+    }
+
+    .time-value {
+        font-size: 2.5em;
+    }
+}
