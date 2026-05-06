@@ -1,14 +1,14 @@
 // ===============================
 // CONFIGURAÇÃO INICIAL
 // ===============================
-const startDate = new Date('2025-07-06T12:30:00-04:00'); // ANO-MÊS-DIA
+const startDate = new Date('2025-07-06T12:30:00-04:00'); // ANO-MÊS-DIA e HORÁRIO de início
 
 // ===============================
 // FUNÇÃO PRINCIPAL: CONTADOR
 // ===============================
 function updateCounter() {
     const now = new Date();
-    const diff = now.getTime() - startDate.getTime(); // Diferença em milissegundos
+    const diff = now.getTime() - startDate.getTime(); // Diferença total em milissegundos
 
     // --- Total de Dias desde o início do namoro ---
     const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -18,53 +18,53 @@ function updateCounter() {
     const totalHours = Math.floor(diff / (1000 * 60 * 60));
     document.getElementById('total-hours').textContent = totalHours.toLocaleString('pt-BR');
 
-    // --- Cálculo Detalhado (Anos, Meses, Dias, Horas, Minutos, Segundos) ---
+    // --- Cálculo de Anos e Meses completos ---
+    // Compara ano e mês calendário entre startDate e now
     let years = now.getFullYear() - startDate.getFullYear();
     let months = now.getMonth() - startDate.getMonth();
-    let days = now.getDate() - startDate.getDate();
 
-    // Ajuste de dias negativos (quando o dia atual ainda não atingiu o dia do mês de início)
-    if (days < 0) {
-        months--;
-        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-        days += lastMonth.getDate();
-    }
-
-    // Ajuste de meses negativos (quando ainda não chegou o mês de início do relacionamento)
+    // Ajuste: se os meses ficaram negativos, volta um ano
     if (months < 0) {
         years--;
         months += 12;
     }
 
-    // --- Cálculo de tempo desde a última virada de mês/ano ---
+    // --- Monta a data de referência (mesmo dia/hora do início, avançado por anos+meses) ---
+    // Ex: se início foi 06/jul/2025 às 12h30, e hoje é 06/mai/2026,
+    // a refDate será 06/mai/2026 às 12h30 (antes de validar se passou ou não)
     const refDate = new Date(startDate);
     refDate.setFullYear(startDate.getFullYear() + years);
     refDate.setMonth(startDate.getMonth() + months);
 
-    // Garante que a data de referência nunca ultrapasse o "agora"
+    // Ajuste: se a refDate ainda não chegou (ex: são 10h e o início é 12h30),
+    // significa que o mês ainda não "completou" — volta um mês
     if (refDate > now) {
+        months--;
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
         refDate.setMonth(refDate.getMonth() - 1);
     }
 
-    // --- Diferença em segundos desde a referência ---
+    // --- Diferença em milissegundos desde a última virada de mês (com horário!) ---
+    // Isso garante que dias/horas/minutos/segundos respeitam o horário de início
     const timeSinceRef = now.getTime() - refDate.getTime();
     let secondsTotal = Math.floor(timeSinceRef / 1000);
 
+    // Extrai cada unidade de tempo
     const seconds = secondsTotal % 60;
     secondsTotal = Math.floor(secondsTotal / 60);
-
     const minutes = secondsTotal % 60;
     secondsTotal = Math.floor(secondsTotal / 60);
-
     const hours = secondsTotal % 24;
     secondsTotal = Math.floor(secondsTotal / 24);
-
-    const currentDays = secondsTotal; // Dias restantes do mês atual
+    const days = secondsTotal; // Dias restantes desde a última virada de mês
 
     // --- Atualiza os elementos HTML ---
     document.getElementById('years').textContent = years;
     document.getElementById('months').textContent = months;
-    document.getElementById('days').textContent = currentDays;
+    document.getElementById('days').textContent = days;
     document.getElementById('hours').textContent = hours;
     document.getElementById('minutes').textContent = minutes;
     document.getElementById('seconds').textContent = seconds;
@@ -92,7 +92,6 @@ var swiper = new Swiper(".swiper", {
         modifier: 1,
         slideShadows: true,
     },
-
     // --- Autoplay (opcional) ---
     // autoplay: {
     //     delay: 5000, // 5 segundos por slide
